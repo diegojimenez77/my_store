@@ -4,6 +4,9 @@ const routerApi = require('./routes/index')
 const app = express();
 const port = 3001;
 
+//el middleware se usa para cachar los posts.
+app.use(express.json());
+
 routerApi(app);
 
 app.get('/', (req, res) => {
