@@ -17,6 +17,20 @@ router.get('/', (req, res) => {
   res.json(products);
 });
 
+router.get('/special', (req, res) => {
+  const products = [];
+  for (let i = 0; i < 10; i++) {
+    products.push({
+      name: faker.commerce.productName(),
+      price:parseInt(faker.commerce.price(), 10),
+      imageUrl: faker.image.imageUrl(),
+      image: faker.image.cats(),
+      datatype: faker.datatype.json()
+    })
+  }
+  res.json(products)
+})
+
 router.get('/filter', (req, res) => {
   res.send('Yo soy un filter');
 })
