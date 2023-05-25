@@ -1,8 +1,7 @@
 const express = require('express');
-
 const router = express.Router();
 
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
   const { limit, offset } = req.query;
   if (limit && offset) {
     res.json({
@@ -13,3 +12,14 @@ router.get('/users', (req, res) => {
     res.send('No hay parametros');
   }
 });
+
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    id,
+    name: 'Diego',
+    age: 37,
+    role: 'Unemployed'
+  })
+})
+module.exports = router;
